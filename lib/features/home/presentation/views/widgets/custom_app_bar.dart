@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../core/utils/assets.dart';
 
@@ -12,7 +12,8 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 40.h),
+      padding:
+          EdgeInsets.only(left: 30.w, right: 30.w, top: 40.h, bottom: 20.h),
       child: Row(
         children: [
           Image.asset(
@@ -20,12 +21,11 @@ class CustomAppBar extends StatelessWidget {
             height: 20.h,
           ),
           const Spacer(),
-          GestureDetector(
-              onTap: () {},
-              child: SvgPicture.asset(
-                AssetsData.whiteSearchIcon,
-                width: 25.h,
-                height: 25.h,
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                FontAwesomeIcons.magnifyingGlass,
+                size: 25.h,
               ))
         ],
       ),
