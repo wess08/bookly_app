@@ -13,18 +13,23 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.only(left: 30.w, right: 30.w, top: 30.h, bottom: 20.h),
+          EdgeInsets.only(left: 30.w, right: 30.w, top: 20.h, bottom: 42.h),
       child: Row(
         children: [
           Image.asset(
             AssetsData.logo,
-            height: 20.h,
+            height: 19.h,
           ),
           const Spacer(),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              FontAwesomeIcons.magnifyingGlass,
+          SizedBox(
+            width: 25.h,
+            height: 25.h,
+            child: InkWell(
+              onTap: () {},
+              child: const Icon(
+                FontAwesomeIcons.magnifyingGlass,
+                size: 18,
+              ),
             ),
           )
         ],

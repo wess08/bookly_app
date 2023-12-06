@@ -5,7 +5,7 @@ import '../../constants.dart';
 
 abstract class Styles {
   static final textStyle14 = TextStyle(
-      fontSize: 14.sp, fontFamily: kMontserrat,fontWeight: FontWeight.w400);
+      fontSize: 14.sp, fontFamily: kMontserrat, fontWeight: FontWeight.w400);
   static final textStyle16 = TextStyle(
       fontSize: 16.sp, fontFamily: kMontserrat, fontWeight: FontWeight.w500);
   static final textStyle18 = TextStyle(
