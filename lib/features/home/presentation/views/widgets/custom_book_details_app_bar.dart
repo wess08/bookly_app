@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomBookDetailsAppBar extends StatelessWidget {
   const CustomBookDetailsAppBar({Key? key}) : super(key: key);
@@ -14,10 +15,10 @@ class CustomBookDetailsAppBar extends StatelessWidget {
             height: 25.h,
             width: 25.h,
             child: InkWell(
-              onTap: () {},
-              child: const Icon(
-                Icons.close
-              ),
+              onTap: () {
+                GoRouter.of(context).pop();
+              },
+              child: const Icon(Icons.close),
             ),
           ),
           const Spacer(),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -25,7 +27,9 @@ class CustomAppBar extends StatelessWidget {
             width: 25.h,
             height: 25.h,
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kSearchView);
+              },
               child: const Icon(
                 FontAwesomeIcons.magnifyingGlass,
                 size: 18,
