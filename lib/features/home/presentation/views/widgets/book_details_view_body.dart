@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'book_rating.dart';
+import 'books_action.dart';
 import 'custom_book_details_app_bar.dart';
 import 'custom_book_image.dart';
 
@@ -42,9 +43,12 @@ class BookDetailsViewBody extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
+            const BooksAction()
           ],
         ),
       ),
     );
   }
 }
+
+
