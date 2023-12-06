@@ -12,4 +12,6 @@ abstract class Styles {
       fontSize: 18.sp, fontWeight: FontWeight.w600, fontFamily: kMontserrat);
   static final textStyle20 =
       TextStyle(fontSize: 20.sp, fontFamily: kMontserrat);
+  static final textStyle30 = TextStyle(
+      fontSize: 30.sp, fontWeight: FontWeight.w600, fontFamily: kGtSectraFine);
 }
