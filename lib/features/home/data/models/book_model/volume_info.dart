@@ -3,27 +3,31 @@ import 'industry_identifiers.dart';
 import 'panelization_summary.dart';
 import 'reading_modes.dart';
 
-/// title : "Fundamentals of Computers and Programming: An Arabic Textbook"
-/// authors : ["Jamil Ahmed Itmazi"]
-/// publisher : "Lulu.com"
-/// industryIdentifiers : [{"type":"ISBN_13","identifier":"9780359198979"},{"type":"ISBN_10","identifier":"035919897X"}]
+/// title : "Planning Extreme Programming"
+/// authors : ["Kent Beck","Martin Fowler"]
+/// publisher : "Addison-Wesley Professional"
+/// publishedDate : "2001"
+/// description : "Without careful ongoing planning, the software development process can fall apart. Extreme Programming (XP) is a new programming discipline, or methodology, that is geared toward the way that the vast majority of software development projects are handled -- in small teams. In this new book, noted software engineers Kent Beck and Martin Fowler show the reader how to properly plan a software development project with XP in mind. The authors lay out a proven strategy that forces the reader to plan as their software project unfolds, and therefore avoid many of the nasty problems that can potentially spring up along the way."
+/// industryIdentifiers : [{"type":"ISBN_10","identifier":"0201710919"},{"type":"ISBN_13","identifier":"9780201710915"}]
 /// readingModes : {"text":false,"image":true}
-/// pageCount : 280
+/// pageCount : 162
 /// printType : "BOOK"
+/// categories : ["Computers"]
+/// averageRating : 4
+/// ratingsCount : 6
 /// maturityRating : "NOT_MATURE"
 /// allowAnonLogging : false
-/// contentVersion : "0.1.0.0.preview.1"
+/// contentVersion : "0.2.4.0.preview.1"
 /// panelizationSummary : {"containsEpubBubbles":false,"containsImageBubbles":false}
-/// imageLinks : {"smallThumbnail":"http://books.google.com/books/content?id=JKZ2DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api","thumbnail":"http://books.google.com/books/content?id=JKZ2DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"}
-/// language : "ar"
-/// previewLink : "http://books.google.com/books?id=JKZ2DwAAQBAJ&pg=PT62&dq=programming&hl=&cd=1&source=gbs_api"
-/// infoLink : "http://books.google.com/books?id=JKZ2DwAAQBAJ&dq=programming&hl=&source=gbs_api"
-/// canonicalVolumeLink : "https://books.google.com/books/about/Fundamentals_of_Computers_and_Programmin.html?hl=&id=JKZ2DwAAQBAJ"
+/// imageLinks : {"smallThumbnail":"http://books.google.com/books/content?id=u13hVoYVZa8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api","thumbnail":"http://books.google.com/books/content?id=u13hVoYVZa8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"}
+/// language : "en"
+/// previewLink : "http://books.google.com/books?id=u13hVoYVZa8C&printsec=frontcover&dq=programming&hl=&cd=3&source=gbs_api"
+/// infoLink : "http://books.google.com/books?id=u13hVoYVZa8C&dq=programming&hl=&source=gbs_api"
+/// canonicalVolumeLink : "https://books.google.com/books/about/Planning_Extreme_Programming.html?hl=&id=u13hVoYVZa8C"
 
 class VolumeInfo {
   VolumeInfo({
     this.title,
-    this.subtitle,
     this.authors,
     this.publisher,
     this.publishedDate,
@@ -33,6 +37,8 @@ class VolumeInfo {
     this.pageCount,
     this.printType,
     this.categories,
+    this.averageRating,
+    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -45,7 +51,6 @@ class VolumeInfo {
 
   VolumeInfo.fromJson(dynamic json) {
     title = json['title'];
-    subtitle = json['subtitle'];
     authors = json['authors'] != null ? json['authors'].cast<String>() : [];
     publisher = json['publisher'];
     publishedDate = json['publishedDate'];
@@ -60,6 +65,8 @@ class VolumeInfo {
     pageCount = json['pageCount'];
     printType = json['printType'];
     categories = json['categories'] != null ? json['categories'].cast<String>() : [];
+    averageRating = json['averageRating'];
+    ratingsCount = json['ratingsCount'];
     maturityRating = json['maturityRating'];
     allowAnonLogging = json['allowAnonLogging'];
     contentVersion = json['contentVersion'];
@@ -71,7 +78,6 @@ class VolumeInfo {
     canonicalVolumeLink = json['canonicalVolumeLink'];
   }
   String? title;
-  String? subtitle;
   List<String>? authors;
   String? publisher;
   String? publishedDate;
@@ -81,6 +87,8 @@ class VolumeInfo {
   int? pageCount;
   String? printType;
   List<String>? categories;
+  int? averageRating;
+  int? ratingsCount;
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
@@ -94,7 +102,6 @@ class VolumeInfo {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['title'] = title;
-    map['subtitle'] = subtitle;
     map['authors'] = authors;
     map['publisher'] = publisher;
     map['publishedDate'] = publishedDate;
@@ -108,6 +115,8 @@ class VolumeInfo {
     map['pageCount'] = pageCount;
     map['printType'] = printType;
     map['categories'] = categories;
+    map['averageRating'] = averageRating;
+    map['ratingsCount'] = ratingsCount;
     map['maturityRating'] = maturityRating;
     map['allowAnonLogging'] = allowAnonLogging;
     map['contentVersion'] = contentVersion;

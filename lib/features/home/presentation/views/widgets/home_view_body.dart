@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/styles.dart';
-import 'best_seller_list_view.dart';
+import 'newest_books_list_view.dart';
 import 'custom_app_bar.dart';
 import 'featured_books_list_view.dart';
 
@@ -13,6 +13,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -26,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
-                    "Best Seller",
+                    "Newest Books",
                     style: Styles.textStyle20.copyWith(height: 1.h),
                   ),
                 ),
@@ -37,7 +38,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           const SliverToBoxAdapter(
-            child: BestSellerListView(),
+            child: NewestBooksListView(),
           )
         ],
       ),
