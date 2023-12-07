@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../home/data/models/book_model/book_model.dart';
-import '../../../../home/data/repo/home_repo.dart';
+import '../../../../home/data/repos/home_repo.dart';
 
 part 'featured_books_state.dart';
 
