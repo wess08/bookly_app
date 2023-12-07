@@ -9,15 +9,15 @@ import '../../../data/models/book_model/book_model.dart';
 import 'book_rating.dart';
 import 'custom_book_image.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
+class BookListViewItem extends StatelessWidget {
   final BookModel book;
-  const BestSellerListViewItem({Key? key,required this.book}) : super(key: key);
+  const BookListViewItem({Key? key,required this.book}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(AppRouter.kBookDetailsView,extra: book);
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

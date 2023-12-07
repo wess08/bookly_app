@@ -25,7 +25,7 @@ class NewestBooksListView extends StatelessWidget {
                   padding: index == 0
                       ? EdgeInsets.only(left: 20.w, right: 20.w, bottom: 5.h)
                       : EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
-                  child: BestSellerListViewItem(book: state.books[index]));
+                  child: BookListViewItem(book: state.books[index]));
             },
           );
         } else if (state is NewestBooksFailure) {
