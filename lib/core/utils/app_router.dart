@@ -6,6 +6,7 @@ import '../../features/home/data/repos/home_repo_impl.dart';
 import '../../features/home/presentation/view_models/similar_books/similar_books_cubit.dart';
 import '../../features/home/presentation/views/book_details_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
+import '../../features/search/presentation/view_models/search_result_books_cubit/search_result_books_cubit.dart';
 import '../../features/search/presentation/views/search_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 import 'service_locator.dart';
@@ -31,11 +32,16 @@ abstract class AppRouter {
         builder: (context, state) => BlocProvider(
             create: (context) =>
                 SimilarBooksCubit(homeRepo: getIt.get<HomeRepoImpl>()),
-            child: BookDetailsView(book: state.extra as BookModel,)),
+            child: BookDetailsView(
+              book: state.extra as BookModel,
+            )),
       ),
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) => BlocProvider(
+            create: (context) =>
+                SearchResultBooksCubit(homeRepo: getIt.get<HomeRepoImpl>()),
+            child: const SearchView()),
       ),
     ],
   );
