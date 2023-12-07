@@ -43,7 +43,7 @@ class VolumeInfo {
     this.allowAnonLogging,
     this.contentVersion,
     this.panelizationSummary,
-    required this.imageLinks,
+    this.imageLinks,
     this.language,
     this.previewLink,
     this.infoLink,
@@ -65,13 +65,13 @@ class VolumeInfo {
     pageCount = json['pageCount'];
     printType = json['printType'];
     categories = json['categories'] != null ? json['categories'].cast<String>() : [];
-    averageRating = json['averageRating'];
+    averageRating = json['averageRating']?.toDouble();
     ratingsCount = json['ratingsCount'];
     maturityRating = json['maturityRating'];
     allowAnonLogging = json['allowAnonLogging'];
     contentVersion = json['contentVersion'];
     panelizationSummary = json['panelizationSummary'] != null ? PanelizationSummary.fromJson(json['panelizationSummary']) : null;
-    imageLinks = ImageLinks.fromJson(json['imageLinks']);
+    imageLinks = json['imageLinks']  != null ? ImageLinks.fromJson(json['imageLinks']): null;
     language = json['language'];
     previewLink = json['previewLink'];
     infoLink = json['infoLink'];
@@ -87,13 +87,13 @@ class VolumeInfo {
   int? pageCount;
   String? printType;
   List<String>? categories;
-  int? averageRating;
+  double? averageRating;
   int? ratingsCount;
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
   PanelizationSummary? panelizationSummary;
-  late ImageLinks imageLinks;
+  ImageLinks? imageLinks;
   String? language;
   String? previewLink;
   String? infoLink;
@@ -123,7 +123,9 @@ class VolumeInfo {
     if (panelizationSummary != null) {
       map['panelizationSummary'] = panelizationSummary?.toJson();
     }
-    map['imageLinks'] = imageLinks.toJson();
+    if(map['imageLinks'] != null){
+      map['imageLinks'] = imageLinks?.toJson();
+    }
     map['language'] = language;
     map['previewLink'] = previewLink;
     map['infoLink'] = infoLink;

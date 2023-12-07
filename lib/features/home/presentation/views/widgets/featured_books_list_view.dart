@@ -1,10 +1,10 @@
-import 'package:bookly/features/search/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/custom_error.dart';
 import '../../../../../core/widgets/custom_loading_indicator.dart';
+import '../../view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'custom_book_image.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
@@ -27,8 +27,7 @@ class FeaturedBooksListView extends StatelessWidget {
                       child: SizedBox(
                           width: 165.w,
                           child: CustomBookImage(
-                            imageUrl: state.books[index].volumeInfo.imageLinks
-                                .thumbnail,
+                            imageUrl: state.books[index].volumeInfo.imageLinks == null ? "" : state.books[index].volumeInfo.imageLinks!.thumbnail ?? "",
                           )));
                 }),
           );

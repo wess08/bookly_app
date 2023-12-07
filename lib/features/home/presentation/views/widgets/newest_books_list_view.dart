@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../search/presentation/view_models/newest_books_cubit/newest_books_cubit.dart';
+import '../../view_models/newest_books_cubit/newest_books_cubit.dart';
 import 'book_list_view_item.dart';
 
 class NewestBooksListView extends StatelessWidget {

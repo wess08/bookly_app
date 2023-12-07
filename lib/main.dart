@@ -5,8 +5,8 @@ import 'constants.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/service_locator.dart';
 import 'features/home/data/repos/home_repo_impl.dart';
-import 'features/search/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
-import 'features/search/presentation/view_models/newest_books_cubit/newest_books_cubit.dart';
+import 'features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
+import 'features/home/presentation/view_models/newest_books_cubit/newest_books_cubit.dart';
 
 void main() {
   setup();

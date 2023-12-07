@@ -6,7 +6,7 @@ import '../../../../../core/utils/styles.dart';
 
 class BookRating extends StatelessWidget {
   final MainAxisAlignment mainAxisAlignment;
-  final int rating;
+  final double rating;
   final int count;
 
   const BookRating(
