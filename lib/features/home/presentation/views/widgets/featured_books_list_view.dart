@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/widgets/custom_error.dart';
 import '../../../../../core/widgets/custom_loading_indicator.dart';
 import '../../view_models/featured_books_cubit/featured_books_cubit.dart';
@@ -26,8 +28,21 @@ class FeaturedBooksListView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 6.w),
                       child: SizedBox(
                           width: 165.w,
-                          child: CustomBookImage(
-                            imageUrl: state.books[index].volumeInfo.imageLinks == null ? "" : state.books[index].volumeInfo.imageLinks!.thumbnail ?? "",
+                          child: GestureDetector(
+                            onTap: () {
+                              GoRouter.of(context).push(
+                                  AppRouter.kBookDetailsView,
+                                  extra: state.books[index]);
+                            },
+                            child: CustomBookImage(
+                              imageUrl:
+                                  state.books[index].volumeInfo.imageLinks ==
+                                          null
+                                      ? ""
+                                      : state.books[index].volumeInfo
+                                              .imageLinks!.thumbnail ??
+                                          "",
+                            ),
                           )));
                 }),
           );
