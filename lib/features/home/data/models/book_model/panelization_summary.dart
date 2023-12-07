@@ -3,26 +3,20 @@
 
 class PanelizationSummary {
   PanelizationSummary({
-    bool? containsEpubBubbles,
-    bool? containsImageBubbles,}){
-    _containsEpubBubbles = containsEpubBubbles;
-    _containsImageBubbles = containsImageBubbles;
-  }
+    this.containsEpubBubbles,
+    this.containsImageBubbles,});
 
   PanelizationSummary.fromJson(dynamic json) {
-    _containsEpubBubbles = json['containsEpubBubbles'];
-    _containsImageBubbles = json['containsImageBubbles'];
+    containsEpubBubbles = json['containsEpubBubbles'];
+    containsImageBubbles = json['containsImageBubbles'];
   }
-  bool? _containsEpubBubbles;
-  bool? _containsImageBubbles;
-
-  bool? get containsEpubBubbles => _containsEpubBubbles;
-  bool? get containsImageBubbles => _containsImageBubbles;
+  bool? containsEpubBubbles;
+  bool? containsImageBubbles;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['containsEpubBubbles'] = _containsEpubBubbles;
-    map['containsImageBubbles'] = _containsImageBubbles;
+    map['containsEpubBubbles'] = containsEpubBubbles;
+    map['containsImageBubbles'] = containsImageBubbles;
     return map;
   }
 

@@ -2,21 +2,18 @@
 
 class SearchInfo {
   SearchInfo({
-    String? textSnippet,}){
-    _textSnippet = textSnippet;
-  }
+    this.textSnippet,
+  });
 
   SearchInfo.fromJson(dynamic json) {
-    _textSnippet = json['textSnippet'];
+    textSnippet = json['textSnippet'];
   }
-  String? _textSnippet;
 
-  String? get textSnippet => _textSnippet;
+  String? textSnippet;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['textSnippet'] = _textSnippet;
+    map['textSnippet'] = textSnippet;
     return map;
   }
-
 }

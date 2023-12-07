@@ -2,20 +2,20 @@
 
 class Epub {
   Epub({
-    bool? isAvailable,}){
-    _isAvailable = isAvailable;
-  }
+    this.isAvailable,
+    this.acsTokenLink,});
 
   Epub.fromJson(dynamic json) {
-    _isAvailable = json['isAvailable'];
+    isAvailable = json['isAvailable'];
+    acsTokenLink = json['acsTokenLink'];
   }
-  bool? _isAvailable;
-
-  bool? get isAvailable => _isAvailable;
+  bool? isAvailable;
+  String? acsTokenLink;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['isAvailable'] = _isAvailable;
+    map['isAvailable'] = isAvailable;
+    map['acsTokenLink'] = acsTokenLink;
     return map;
   }
 

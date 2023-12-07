@@ -22,123 +22,103 @@ import 'reading_modes.dart';
 
 class VolumeInfo {
   VolumeInfo({
-    String? title,
-    List<String>? authors,
-    String? publisher,
-    List<IndustryIdentifiers>? industryIdentifiers,
-    ReadingModes? readingModes,
-    num? pageCount,
-    String? printType,
-    String? maturityRating,
-    bool? allowAnonLogging,
-    String? contentVersion,
-    PanelizationSummary? panelizationSummary,
-    ImageLinks? imageLinks,
-    String? language,
-    String? previewLink,
-    String? infoLink,
-    String? canonicalVolumeLink,}){
-    _title = title;
-    _authors = authors;
-    _publisher = publisher;
-    _industryIdentifiers = industryIdentifiers;
-    _readingModes = readingModes;
-    _pageCount = pageCount;
-    _printType = printType;
-    _maturityRating = maturityRating;
-    _allowAnonLogging = allowAnonLogging;
-    _contentVersion = contentVersion;
-    _panelizationSummary = panelizationSummary;
-    _imageLinks = imageLinks;
-    _language = language;
-    _previewLink = previewLink;
-    _infoLink = infoLink;
-    _canonicalVolumeLink = canonicalVolumeLink;
-  }
+    this.title,
+    this.subtitle,
+    this.authors,
+    this.publisher,
+    this.publishedDate,
+    this.description,
+    this.industryIdentifiers,
+    this.readingModes,
+    this.pageCount,
+    this.printType,
+    this.categories,
+    this.maturityRating,
+    this.allowAnonLogging,
+    this.contentVersion,
+    this.panelizationSummary,
+    required this.imageLinks,
+    this.language,
+    this.previewLink,
+    this.infoLink,
+    this.canonicalVolumeLink,});
 
   VolumeInfo.fromJson(dynamic json) {
-    _title = json['title'];
-    _authors = json['authors'] != null ? json['authors'].cast<String>() : [];
-    _publisher = json['publisher'];
+    title = json['title'];
+    subtitle = json['subtitle'];
+    authors = json['authors'] != null ? json['authors'].cast<String>() : [];
+    publisher = json['publisher'];
+    publishedDate = json['publishedDate'];
+    description = json['description'];
     if (json['industryIdentifiers'] != null) {
-      _industryIdentifiers = [];
+      industryIdentifiers = [];
       json['industryIdentifiers'].forEach((v) {
-        _industryIdentifiers?.add(IndustryIdentifiers.fromJson(v));
+        industryIdentifiers?.add(IndustryIdentifiers.fromJson(v));
       });
     }
-    _readingModes = json['readingModes'] != null ? ReadingModes.fromJson(json['readingModes']) : null;
-    _pageCount = json['pageCount'];
-    _printType = json['printType'];
-    _maturityRating = json['maturityRating'];
-    _allowAnonLogging = json['allowAnonLogging'];
-    _contentVersion = json['contentVersion'];
-    _panelizationSummary = json['panelizationSummary'] != null ? PanelizationSummary.fromJson(json['panelizationSummary']) : null;
-    _imageLinks = json['imageLinks'] != null ? ImageLinks.fromJson(json['imageLinks']) : null;
-    _language = json['language'];
-    _previewLink = json['previewLink'];
-    _infoLink = json['infoLink'];
-    _canonicalVolumeLink = json['canonicalVolumeLink'];
+    readingModes = json['readingModes'] != null ? ReadingModes.fromJson(json['readingModes']) : null;
+    pageCount = json['pageCount'];
+    printType = json['printType'];
+    categories = json['categories'] != null ? json['categories'].cast<String>() : [];
+    maturityRating = json['maturityRating'];
+    allowAnonLogging = json['allowAnonLogging'];
+    contentVersion = json['contentVersion'];
+    panelizationSummary = json['panelizationSummary'] != null ? PanelizationSummary.fromJson(json['panelizationSummary']) : null;
+    imageLinks = ImageLinks.fromJson(json['imageLinks']);
+    language = json['language'];
+    previewLink = json['previewLink'];
+    infoLink = json['infoLink'];
+    canonicalVolumeLink = json['canonicalVolumeLink'];
   }
-  String? _title;
-  List<String>? _authors;
-  String? _publisher;
-  List<IndustryIdentifiers>? _industryIdentifiers;
-  ReadingModes? _readingModes;
-  num? _pageCount;
-  String? _printType;
-  String? _maturityRating;
-  bool? _allowAnonLogging;
-  String? _contentVersion;
-  PanelizationSummary? _panelizationSummary;
-  ImageLinks? _imageLinks;
-  String? _language;
-  String? _previewLink;
-  String? _infoLink;
-  String? _canonicalVolumeLink;
-
-  String? get title => _title;
-  List<String>? get authors => _authors;
-  String? get publisher => _publisher;
-  List<IndustryIdentifiers>? get industryIdentifiers => _industryIdentifiers;
-  ReadingModes? get readingModes => _readingModes;
-  num? get pageCount => _pageCount;
-  String? get printType => _printType;
-  String? get maturityRating => _maturityRating;
-  bool? get allowAnonLogging => _allowAnonLogging;
-  String? get contentVersion => _contentVersion;
-  PanelizationSummary? get panelizationSummary => _panelizationSummary;
-  ImageLinks? get imageLinks => _imageLinks;
-  String? get language => _language;
-  String? get previewLink => _previewLink;
-  String? get infoLink => _infoLink;
-  String? get canonicalVolumeLink => _canonicalVolumeLink;
+  String? title;
+  String? subtitle;
+  List<String>? authors;
+  String? publisher;
+  String? publishedDate;
+  String? description;
+  List<IndustryIdentifiers>? industryIdentifiers;
+  ReadingModes? readingModes;
+  int? pageCount;
+  String? printType;
+  List<String>? categories;
+  String? maturityRating;
+  bool? allowAnonLogging;
+  String? contentVersion;
+  PanelizationSummary? panelizationSummary;
+  late ImageLinks imageLinks;
+  String? language;
+  String? previewLink;
+  String? infoLink;
+  String? canonicalVolumeLink;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['title'] = _title;
-    map['authors'] = _authors;
-    map['publisher'] = _publisher;
-    if (_industryIdentifiers != null) {
-      map['industryIdentifiers'] = _industryIdentifiers?.map((v) => v.toJson()).toList();
+    map['title'] = title;
+    map['subtitle'] = subtitle;
+    map['authors'] = authors;
+    map['publisher'] = publisher;
+    map['publishedDate'] = publishedDate;
+    map['description'] = description;
+    if (industryIdentifiers != null) {
+      map['industryIdentifiers'] = industryIdentifiers?.map((v) => v.toJson()).toList();
     }
-    if (_readingModes != null) {
-      map['readingModes'] = _readingModes?.toJson();
+    if (readingModes != null) {
+      map['readingModes'] = readingModes?.toJson();
     }
-    map['pageCount'] = _pageCount;
-    map['printType'] = _printType;
-    map['maturityRating'] = _maturityRating;
-    map['allowAnonLogging'] = _allowAnonLogging;
-    map['contentVersion'] = _contentVersion;
-    if (_panelizationSummary != null) {
-      map['panelizationSummary'] = _panelizationSummary?.toJson();
+    map['pageCount'] = pageCount;
+    map['printType'] = printType;
+    map['categories'] = categories;
+    map['maturityRating'] = maturityRating;
+    map['allowAnonLogging'] = allowAnonLogging;
+    map['contentVersion'] = contentVersion;
+    if (panelizationSummary != null) {
+      map['panelizationSummary'] = panelizationSummary?.toJson();
     }
-    if (_imageLinks != null) {
-      map['imageLinks'] = _imageLinks?.toJson();
-    }
-    map['language'] = _language;
-    map['previewLink'] = _previewLink;
-    map['infoLink'] = _infoLink;
-    map['canonicalVolumeLink'] = _canonicalVolumeLink;
+    map['imageLinks'] = imageLinks.toJson();
+    map['language'] = language;
+    map['previewLink'] = previewLink;
+    map['infoLink'] = infoLink;
+    map['canonicalVolumeLink'] = canonicalVolumeLink;
     return map;
   }
 
